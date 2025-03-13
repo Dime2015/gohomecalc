@@ -513,6 +513,24 @@ document.addEventListener('DOMContentLoaded', function() {
         scoreElement.className = 'score';
         scoreElement.textContent = `得分：${roundedScore}分`;
         
+        // 根据分数设置颜色
+        if (roundedScore >= 75) {
+            scoreElement.style.color = '#2ecc71'; // 绿色 - 高分
+        } else if (roundedScore >= 1) {
+            scoreElement.style.color = '#27ae60'; // 浅绿色 - 中高分
+        } else if (roundedScore >= -25) {
+            scoreElement.style.color = '#f39c12'; // 黄色 - 中立分数
+        } else if (roundedScore >= -75) {
+            scoreElement.style.color = '#e67e22'; // 橙色 - 中低分
+        } else {
+            scoreElement.style.color = '#e74c3c'; // 红色 - 低分
+        }
+        
+        // 设置字体样式
+        scoreElement.style.fontWeight = 'bold';
+        scoreElement.style.fontSize = '24px';
+        scoreElement.style.marginBottom = '10px';
+        
         const adviceElement = document.createElement('div');
         adviceElement.className = 'advice';
         
@@ -576,6 +594,24 @@ document.addEventListener('DOMContentLoaded', function() {
         const scoreElement = document.createElement('div');
         scoreElement.className = 'score';
         scoreElement.textContent = `得分：${roundedScore}分`;
+        
+        // 根据分数设置颜色
+        if (roundedScore >= 75) {
+            scoreElement.style.color = '#2ecc71'; // 绿色 - 高分
+        } else if (roundedScore >= 1) {
+            scoreElement.style.color = '#27ae60'; // 浅绿色 - 中高分
+        } else if (roundedScore >= -25) {
+            scoreElement.style.color = '#f39c12'; // 黄色 - 中立分数
+        } else if (roundedScore >= -75) {
+            scoreElement.style.color = '#e67e22'; // 橙色 - 中低分
+        } else {
+            scoreElement.style.color = '#e74c3c'; // 红色 - 低分
+        }
+        
+        // 设置字体样式
+        scoreElement.style.fontWeight = 'bold';
+        scoreElement.style.fontSize = '24px';
+        scoreElement.style.marginBottom = '10px';
         
         const adviceElement = document.createElement('div');
         adviceElement.className = 'advice';
