@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>海外生活计算器</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>海外生活计算器</h1>
+            <p>帮您做出更明智的生活选择</p>
+        </header>
+        
+        <main class="home-page" id="homePage">
+            <div class="button-container">
+                <button id="btnForeign" class="btn main-btn">我在国外，考虑回国</button>
+                <button id="btnDomestic" class="btn main-btn">我在国内，考虑去海外</button>
+            </div>
+        </main>
+
+        <div id="questionPage1" class="question-page hidden">
+            <!-- 国外考虑回国问题将在这里动态添加 -->
+            <div class="question-container" id="questionContainer1"></div>
+            <button id="calculateBtn1" class="btn calculate-btn">计算结果</button>
+            <div id="result1" class="result-container"></div>
+            <button id="backBtn1" class="btn back-btn">返回首页</button>
+        </div>
+
+        <div id="questionPage2" class="question-page hidden">
+            <!-- 国内考虑去海外问题将在这里动态添加 -->
+            <div class="question-container" id="questionContainer2"></div>
+            <button id="calculateBtn2" class="btn calculate-btn">计算结果</button>
+            <div id="result2" class="result-container"></div>
+            <button id="backBtn2" class="btn back-btn">返回首页</button>
+        </div>
+
+        <footer>
+            <p>注意：本计算器仅供参考，重大人生决策请结合实际情况考虑</p>
+        </footer>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html> 
