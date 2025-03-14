@@ -1,46 +1,228 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>海外生活计算器</title>
+    <title>回国or出海，栖息地评估器（良禽版）</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>海外生活计算器</h1>
-            <p>帮您做出更明智的生活选择</p>
-        </header>
+        <h1 class="title">回国or出海，栖息地评估器（良禽版）</h1>
+        <div class="title-image-container">
+            <img src="title.png" alt="回国or出海栖息地评估器" class="title-image">
+        </div>
         
-        <main class="home-page" id="homePage">
-            <div class="button-container">
-                <button id="btnForeign" class="btn main-btn">我在国外，考虑回国</button>
-                <button id="btnDomestic" class="btn main-btn">我在国内，考虑去海外</button>
+        <div class="questions">
+            <!-- 问题1 -->
+            <div class="question-block" id="question1">
+                <h2>1. 你多大了？</h2>
+                <div class="options">
+                    <button class="option-btn" data-score="10" data-weight="1.5">18-25岁，地球任何角落你都是资产</button>
+                    <button class="option-btn" data-score="6" data-weight="1.5">26-35岁，皮实，耐操，买回去根本用不坏</button>
+                    <button class="option-btn" data-score="0" data-weight="1.5">36-45岁，一个你不想思考年纪的年纪</button>
+                    <button class="option-btn" data-score="-6" data-weight="1.5">46-60岁，好像是叔叔阿姨，仿佛又是爷爷奶奶</button>
+                    <button class="option-btn" data-score="-10" data-weight="1.5">60岁以上，退休带孙子不香吗？</button>
+                </div>
             </div>
-        </main>
 
-        <div id="questionPage1" class="question-page hidden">
-            <!-- 国外考虑回国问题将在这里动态添加 -->
-            <div class="question-container" id="questionContainer1"></div>
-            <button id="calculateBtn1" class="btn calculate-btn">计算结果</button>
-            <div id="result1" class="result-container"></div>
-            <button id="backBtn1" class="btn back-btn">返回首页</button>
+            <!-- 问题2 -->
+            <div class="question-block" id="question2">
+                <h2>2. 你家一年赚多少钱？</h2>
+                <div class="options">
+                    <button class="option-btn" data-score="10" data-weight="1.8">100万以上，能花钱解决的事儿还叫事儿吗</button>
+                    <button class="option-btn" data-score="6" data-weight="1.8">50-100万，大钱没有，小钱管够</button>
+                    <button class="option-btn" data-score="2" data-weight="1.8">20-50万，大部分消费对你来说都是陷阱</button>
+                    <button class="option-btn" data-score="-4" data-weight="1.8">5-20万，当月光族也不是你本意</button>
+                    <button class="option-btn" data-score="-10" data-weight="1.8">5万以下，咱们先聚焦于维持生命体征</button>
+                </div>
+            </div>
+
+            <!-- 问题3 -->
+            <div class="question-block" id="question3">
+                <h2>3. 你的英语咋样？</h2>
+                <div class="options">
+                    <button class="option-btn" data-score="10" data-weight="2.0">母语者, I moved to states when I was 3</button>
+                    <button class="option-btn" data-score="6" data-weight="2.0">日常沟通无碍，人们常常问你英语在哪儿学的</button>
+                    <button class="option-btn" data-score="2" data-weight="2.0">能点菜，不是不愿说，只是觉得疲惫</button>
+                    <button class="option-btn" data-score="-4" data-weight="2.0">Abandon是你在红宝书到达过最远的地方</button>
+                    <button class="option-btn" data-score="-10" data-weight="2.0">很多时候，你会萌生学手语的冲动</button>
+                </div>
+            </div>
+
+            <!-- 问题4 -->
+            <div class="question-block" id="question4">
+                <h2>4. 你会目标国家的语言吗？</h2>
+                <div class="options">
+                    <button class="option-btn" data-score="10" data-weight="2.0">语言天花板，当地人都喊哥！</button>
+                    <button class="option-btn" data-score="6" data-weight="2.0">点菜硬聊，融入圈子yyds！</button>
+                    <button class="option-btn" data-score="2" data-weight="2.0">硬憋几句，能活就行！</button>
+                    <button class="option-btn" data-score="-4" data-weight="2.0">半吊子战士，铁憨憨实锤！</button>
+                    <button class="option-btn" data-score="-10" data-weight="2.0">哑巴天选，手势比划到天明！</button>
+                </div>
+            </div>
+
+            <!-- 问题5 -->
+            <div class="question-block" id="question5">
+                <h2>5. 你跟家人亲不亲？</h2>
+                <div class="options">
+                    <button class="option-btn" data-score="8" data-weight="1.0">家庭？不存在，随便浪到飞起！</button>
+                    <button class="option-btn" data-score="4" data-weight="1.0">过年'哈哈'，无牵无挂最自由！</button>
+                    <button class="option-btn" data-score="0" data-weight="1.0">不冷不热，爱咋咋地！</button>
+                    <button class="option-btn" data-score="-4" data-weight="1.0">老妈查岗，走到哪都得哄！</button>
+                    <button class="option-btn" data-score="-8" data-weight="1.0">妈宝天选，想家到emo爆炸！</button>
+                </div>
+            </div>
+
+            <!-- 问题6 -->
+            <div class="question-block" id="question6">
+                <h2>6. 你爹妈在中国能给你哪些社会资源？</h2>
+                <div class="options">
+                    <button class="option-btn" data-score="8" data-weight="1.5">爹妈是人脉+钞票双神器，国内躺赢稳如狗！</button>
+                    <button class="option-btn" data-score="2" data-weight="1.5">钞能力在线，硬核砸钱没烦恼！</button>
+                    <button class="option-btn" data-score="4" data-weight="1.5">关系户天选，国内办事一条龙！</button>
+                    <button class="option-btn" data-score="-4" data-weight="1.5">爹妈摆烂，全靠自己卷到秃！</button>
+                </div>
+            </div>
+
+            <!-- 问题7 -->
+            <div class="question-block" id="question7">
+                <h2>7. 你在海外有啥亲戚朋友？</h2>
+                <div class="options">
+                    <button class="option-btn" data-score="10" data-weight="1.0">亲戚朋友已在海外开团，就缺你一个</button>
+                    <button class="option-btn" data-score="6" data-weight="1.0">已经有铁哥们资深留洋，指路明灯已备好</button>
+                    <button class="option-btn" data-score="2" data-weight="1.0">认识那么几个网友吧，说去了请我吃饭</button>
+                    <button class="option-btn" data-score="-2" data-weight="1.0">说是有一个七叔的小舅子的妹夫200年前去了南洋</button>
+                    <button class="option-btn" data-score="-8" data-weight="1.0">举目无亲，背井离乡，孑然一身，了无牵挂</button>
+                </div>
+            </div>
+
+            <!-- 问题8 -->
+            <div class="question-block" id="question8">
+                <h2>8. 你学历多高？</h2>
+                <div class="options">
+                    <button class="option-btn" data-score="10" data-weight="1.5">清北哈耶普及同等级高校</button>
+                    <button class="option-btn" data-score="6" data-weight="1.5">海内外名校本科或硕士</button>
+                    <button class="option-btn" data-score="2" data-weight="1.5">普普通通，混哪都凑合！</button>
+                    <button class="option-btn" data-score="-4" data-weight="1.5">四舍五入算是读过书吧</button>
+                    <button class="option-btn" data-score="-8" data-weight="1.5">小学文化也不影响我逆天改命</button>
+                </div>
+            </div>
+
+            <!-- 问题9 -->
+            <div class="question-block" id="question9">
+                <h2>9. 你有啥蓝领技能？</h2>
+                <div class="options">
+                    <button class="option-btn" data-score="10" data-weight="1.5">汽修、装潢、厨师，就没有你不会的</button>
+                    <button class="option-btn" data-score="6" data-weight="1.5">一技傍身，吃饭不愁！</button>
+                    <button class="option-btn" data-score="2" data-weight="1.5">半吊子手艺，糊弄一下能活！</button>
+                    <button class="option-btn" data-score="-4" data-weight="1.5">如果真被逼急了，我可以去洗盘子</button>
+                    <button class="option-btn" data-score="-8" data-weight="1.5">本宫可没吃过这种苦</button>
+                </div>
+            </div>
+
+            <!-- 问题10 -->
+            <div class="question-block" id="question10">
+                <h2>10. 你现在干啥工作？</h2>
+                <div class="options">
+                    <button class="option-btn" data-score="6" data-weight="1.0">外企，每天就是和老外谈笑风生</button>
+                    <button class="option-btn" data-score="4" data-weight="1.0">创业，你永远有一双发现需求的眼睛</button>
+                    <button class="option-btn" data-score="0" data-weight="1.0">民企，最没有歧义的那种牛马</button>
+                    <button class="option-btn" data-score="-6" data-weight="1.0">体制内，铁饭碗天选，稳如老狗！</button>
+                    <button class="option-btn" data-score="-8" data-weight="1.0">无业游民，兄弟们，今天又要到饭了</button>
+                </div>
+            </div>
+
+            <!-- 问题11 -->
+            <div class="question-block" id="question11">
+                <h2>11. 你家有多少资产？</h2>
+                <div class="options">
+                    <button class="option-btn" data-score="10" data-weight="1.8">千万以上，富哥天花板，全球随便浪！</button>
+                    <button class="option-btn" data-score="6" data-weight="1.8">数百万，不折腾不理财，基本花不完</button>
+                    <button class="option-btn" data-score="2" data-weight="1.8">小康，日子凑合，饿不死就行！</button>
+                    <button class="option-btn" data-score="-4" data-weight="1.8">没闲钱但饿不死</button>
+                    <button class="option-btn" data-score="-10" data-weight="1.8">喝西北风都得挑日子</button>
+                </div>
+            </div>
+
+            <!-- 问题12 -->
+            <div class="question-block" id="question12">
+                <h2>12. 你有伴侣孩子吗？</h2>
+                <div class="options">
+                    <button class="option-btn" data-score="6" data-weight="1.0">单身贵族，一人吃饱，全家不饿！</button>
+                    <button class="option-btn" data-score="2" data-weight="1.0">有伴侣无孩，两人世界</button>
+                    <button class="option-btn" data-score="-2" data-weight="1.0">有伴侣有1孩儿，拖家带口，成本有点高！</button>
+                    <button class="option-btn" data-score="-6" data-weight="1.0">有伴侣有多孩儿，全职奶爸了解一下！</button>
+                    <button class="option-btn" data-score="-8" data-weight="1.0">单亲带娃</button>
+                </div>
+            </div>
+
+            <!-- 问题13 -->
+            <div class="question-block" id="question13">
+                <h2>13. 伴侣孩子啥态度？（若有家庭）</h2>
+                <div class="options">
+                    <button class="option-btn" data-score="10" data-weight="1.5">举家支持，全家卷王，团战无敌！</button>
+                    <button class="option-btn" data-score="4" data-weight="1.5">勉强同意，行吧行吧就听你的</button>
+                    <button class="option-btn" data-score="0" data-weight="1.5">无所谓，爱咋咋地，随缘摆烂！</button>
+                    <button class="option-btn" data-score="-6" data-weight="1.5">有点反对，家里吵翻，头秃没商量！</button>
+                    <button class="option-btn" data-score="-10" data-weight="1.5">坚决反对，家都不和，自找PUA！</button>
+                </div>
+            </div>
+
+            <!-- 问题14 -->
+            <div class="question-block" id="question14">
+                <h2>14. 你喜欢怎样的教育制度？</h2>
+                <div class="options">
+                    <button class="option-btn" data-score="10" data-weight="1.0">我们给孩子最好的，他自己挑</button>
+                    <button class="option-btn" data-score="6" data-weight="1.0">孩子健康快乐就行</button>
+                    <button class="option-btn" data-score="0" data-weight="1.0">教育都差不多，混毕业就行！</button>
+                    <button class="option-btn" data-score="-6" data-weight="1.0">考试才是硬道理，卷王天命！</button>
+                    <button class="option-btn" data-score="-10" data-weight="1.0">高考满分，志在必得</button>
+                </div>
+            </div>
+
+            <!-- 问题15 -->
+            <div class="question-block" id="question15">
+                <h2>15. 你喜欢什么样的生活环境？</h2>
+                <div class="options">
+                    <button class="option-btn" data-score="10" data-weight="1.0">任何人的呼吸对你来说都是一种打扰</button>
+                    <button class="option-btn" data-score="6" data-weight="1.0">社交随缘，但更喜欢一个人修禅</button>
+                    <button class="option-btn" data-score="0" data-weight="1.0">烟火气还是冷漠脸，都能凑合！</button>
+                    <button class="option-btn" data-score="-6" data-weight="1.0">家长里短，街坊八卦yyds！</button>
+                    <button class="option-btn" data-score="-10" data-weight="1.0">串门唠嗑才是人生，距离感滚远点！</button>
+                </div>
+            </div>
+
+            <!-- 问题16 -->
+            <div class="question-block" id="question16">
+                <h2>16. 你身体咋样？</h2>
+                <div class="options">
+                    <button class="option-btn" data-score="8" data-weight="1.0">长这么大你就没进过医院</button>
+                    <button class="option-btn" data-score="2" data-weight="1.0">小病小痛，扛一扛就行！</button>
+                    <button class="option-btn" data-score="-4" data-weight="1.0">交医保你通常是赚的</button>
+                    <button class="option-btn" data-score="-8" data-weight="1.0">已经随时准备好原地火化</button>
+                </div>
+            </div>
+
+            <!-- 问题17 -->
+            <div class="question-block" id="question17">
+                <h2>17. 你签证状况如何？</h2>
+                <div class="options">
+                    <button class="option-btn" data-score="10" data-weight="2.0">永居在手，天下我有</button>
+                    <button class="option-btn" data-score="6" data-weight="2.0">长期签证，硬住几年，稳如老狗！</button>
+                    <button class="option-btn" data-score="2" data-weight="2.0">短期签证，晃悠几圈，混混够用！</button>
+                    <button class="option-btn" data-score="-2" data-weight="2.0">申请中，悬而未决，忐忑到飞起！</button>
+                    <button class="option-btn" data-score="-10" data-weight="2.0">啥也没有，长这么大没见过护照</button>
+                </div>
+            </div>
+
+            <!-- 计算按钮和结果 -->
+            <div class="calculate-section">
+                <button id="calculate-btn" class="calculate-btn">计算结果</button>
+                <div id="result" class="result-container"></div>
+            </div>
         </div>
-
-        <div id="questionPage2" class="question-page hidden">
-            <!-- 国内考虑去海外问题将在这里动态添加 -->
-            <div class="question-container" id="questionContainer2"></div>
-            <button id="calculateBtn2" class="btn calculate-btn">计算结果</button>
-            <div id="result2" class="result-container"></div>
-            <button id="backBtn2" class="btn back-btn">返回首页</button>
-        </div>
-
-        <footer>
-            <p>注意：本计算器仅供参考，重大人生决策请结合实际情况考虑</p>
-        </footer>
     </div>
-    
     <script src="script.js"></script>
 </body>
 </html> 

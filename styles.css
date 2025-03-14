@@ -13,167 +13,146 @@ body {
 }
 
 .container {
+    width: 100%;
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
 }
 
-header {
+/* 标题样式 */
+.title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* 图片样式 */
+.title-image-container {
+    width: 100%;
     text-align: center;
     margin-bottom: 30px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #eee;
 }
 
-h1 {
-    font-size: 28px;
-    margin-bottom: 10px;
-    color: #333;
-}
-
-header p {
-    color: #666;
-}
-
-/* 按钮样式 */
-.btn {
-    display: block;
-    padding: 12px 15px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    background-color: #f5f5f5;
-    color: #333;
+.title-image {
+    max-width: 49%;
+    height: auto;
     border-radius: 4px;
-    cursor: pointer;
-    transition: all 0.3s;
-    text-align: center;
-    width: 100%;
-    margin: 10px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.btn:hover {
-    background-color: #e9e9e9;
-}
-
-.main-btn {
-    font-size: 18px;
-    padding: 15px;
-    margin: 15px 0;
-}
-
-.button-container {
-    width: 80%;
-    margin: 0 auto;
-}
-
-/* 问题页面样式 */
-.question-page {
-    width: 100%;
-}
-
-.hidden {
-    display: none;
-}
-
-.question-box {
-    margin-bottom: 25px;
+/* 问题区域 */
+.question-block {
+    margin-bottom: 40px;
     padding-bottom: 20px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #ddd;
 }
 
-.question-title {
-    font-size: 17px;
-    margin-bottom: 12px;
+.question-block h2 {
+    font-size: 18px;
+    margin-bottom: 15px;
     font-weight: bold;
 }
 
-.options-container {
+/* 选项按钮 */
+.options {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     gap: 10px;
 }
 
 .option-btn {
-    flex: 1 0 45%;
-    padding: 10px;
-    text-align: center;
-    border: 1px solid #ccc;
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 16px;
+    border: 1px solid #ddd;
     background-color: #f5f5f5;
     border-radius: 4px;
     cursor: pointer;
-    transition: all 0.2s;
+    text-align: left;
+    transition: all 0.2s ease;
+}
+
+.option-btn:hover {
+    background-color: #ebebeb;
 }
 
 .option-btn.selected {
     background-color: #555;
     color: white;
+    border-color: #444;
     font-weight: bold;
-    border-color: #333;
+}
+
+/* 计算按钮区域 */
+.calculate-section {
+    margin-top: 30px;
+    text-align: center;
 }
 
 .calculate-btn {
-    background-color: #555;
+    background-color: #333;
     color: white;
-    font-weight: bold;
-    margin-top: 20px;
-    padding: 15px;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 4px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.2s;
 }
 
 .calculate-btn:hover {
-    background-color: #444;
+    background-color: #555;
 }
 
-.back-btn {
-    margin-top: 20px;
-}
-
-/* 结果容器样式 */
+/* 结果区域 */
 .result-container {
-    margin: 20px 0;
+    margin-top: 30px;
     padding: 20px;
-    background-color: #f0f0f0;
+    border: 1px solid #ddd;
     border-radius: 4px;
+    background-color: white;
     display: none;
-    text-align: center;
 }
 
 .result-container.show {
     display: block;
 }
 
-.score {
-    font-size: 28px;
+.score-value {
+    font-size: 22px;
     font-weight: bold;
     margin: 10px 0;
 }
 
-.advice {
-    font-size: 18px;
-    line-height: 1.5;
+.score-blue {
+    color: #0066cc;
 }
 
-footer {
-    margin-top: auto;
-    text-align: center;
-    padding-top: 20px;
-    font-size: 14px;
-    color: #888;
+.score-red {
+    color: #cc0000;
+}
+
+/* 错误提示 */
+.error-message {
+    color: #cc0000;
+    margin-top: 10px;
+    font-weight: bold;
 }
 
 /* 响应式设计 */
-@media (max-width: 600px) {
+@media screen and (min-width: 768px) {
+    .title {
+        font-size: 28px;
+    }
+    
+    .question-block h2 {
+        font-size: 20px;
+    }
+    
     .option-btn {
-        flex: 1 0 100%;
-    }
-    
-    h1 {
-        font-size: 24px;
-    }
-    
-    .container {
-        padding: 15px;
+        width: 80%;
+        margin: 0 auto;
     }
 } 
