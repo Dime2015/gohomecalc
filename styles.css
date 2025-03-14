@@ -1,4 +1,4 @@
-/* 全局样式 */
+/* 全局样式 - 移动端优先设计 */
 * {
     margin: 0;
     padding: 0;
@@ -9,120 +9,136 @@
 body {
     background-color: #f8f8f8;
     color: #333;
-    line-height: 1.6;
-    font-size: 16px; /* 确保基础字体大小至少16px */
+    line-height: 1.5;
+    font-size: 18px; /* 增加基础字体大小 */
+    -webkit-text-size-adjust: 100%; /* 防止iOS自动调整字体大小 */
 }
 
 .container {
     width: 100%;
     max-width: 800px;
     margin: 0 auto;
-    padding: 15px;
+    padding: 15px 10px;
 }
 
 /* 标题样式 */
 .title {
     text-align: center;
-    margin-bottom: 20px;
-    font-size: 22px;
+    margin-bottom: 15px;
+    font-size: 24px;
     font-weight: bold;
     color: #333;
+    line-height: 1.3;
 }
 
 /* 图片样式 */
 .title-image-container {
     width: 100%;
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
+    padding: 0;
 }
 
 .title-image {
-    max-width: 49%;
+    max-width: 100%; /* 在移动端占满屏幕宽度 */
+    width: 100%;
     height: auto;
-    border-radius: 4px;
+    border-radius: 0; /* 移除圆角，与屏幕边缘对齐 */
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 /* 问题区域 */
 .question-block {
-    margin-bottom: 35px;
+    margin-bottom: 30px;
     padding-bottom: 20px;
     border-bottom: 1px solid #ddd;
 }
 
 .question-block h2 {
-    font-size: 18px;
+    font-size: 20px;
     margin-bottom: 15px;
     font-weight: bold;
+    padding: 0 5px;
+    line-height: 1.3;
 }
 
 /* 选项按钮 */
 .options {
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    align-items: center; /* 居中显示按钮 */
+    gap: 15px;
+    align-items: center;
+    width: 100%;
 }
 
 .option-btn {
-    width: 80%; /* 按钮宽度占屏幕80% */
-    padding: 14px 15px;
-    min-height: 44px; /* 确保按钮高度足够 */
-    font-size: 16px; /* 确保字体大小至少16px */
-    border: 1px solid #ddd;
+    width: 90%; /* 更宽的按钮覆盖更多屏幕 */
+    padding: 15px;
+    min-height: 54px; /* 更高的按钮方便点击 */
+    font-size: 18px; /* 更大的字体 */
+    border: 1px solid #ccc;
     background-color: #f5f5f5;
-    border-radius: 4px;
+    border-radius: 8px; /* 更圆的边角 */
     cursor: pointer;
     text-align: left;
     transition: all 0.2s ease;
     line-height: 1.4;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
-.option-btn:hover {
-    background-color: #ebebeb;
+.option-btn:hover, .option-btn:active {
+    background-color: #e0e0e0;
+    transform: translateY(-1px);
 }
 
 .option-btn.selected {
-    background-color: #555;
+    background-color: #444;
     color: white;
-    border-color: #444;
+    border-color: #333;
     font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
 /* 计算按钮区域 */
 .calculate-section {
-    margin-top: 30px;
+    margin-top: 35px;
     text-align: center;
 }
 
 .calculate-btn {
     background-color: #333;
     color: white;
-    padding: 15px 30px;
-    min-height: 50px;
-    width: 80%; /* 与选项按钮保持一致宽度 */
+    padding: 16px 20px;
+    min-height: 60px;
+    width: 90%; /* 与选项按钮保持一致宽度 */
     border: none;
-    border-radius: 4px;
-    font-size: 18px;
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.2s;
+    transition: all 0.2s ease;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
 }
 
-.calculate-btn:hover {
-    background-color: #555;
+.calculate-btn:hover, .calculate-btn:active {
+    background-color: #444;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.25);
 }
 
 /* 结果区域 */
 .result-container {
-    margin-top: 30px;
-    padding: 20px;
+    margin: 30px auto 20px;
+    padding: 25px 20px;
     border: 1px solid #ddd;
-    border-radius: 4px;
+    border-radius: 8px;
     background-color: white;
     display: none;
-    font-size: 16px;
-    line-height: 1.5;
+    font-size: 18px;
+    line-height: 1.6;
     text-align: left;
+    width: 95%;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
 
 .result-container.show {
@@ -130,7 +146,7 @@ body {
 }
 
 .score-value {
-    font-size: 22px;
+    font-size: 24px;
     font-weight: bold;
     margin: 10px 0;
 }
@@ -146,15 +162,23 @@ body {
 /* 错误提示 */
 .error-message {
     color: #cc0000;
-    margin-top: 10px;
+    margin: 15px auto;
+    padding: 10px;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 18px;
+    background-color: #fff9f9;
+    border-radius: 5px;
+    width: 90%;
 }
 
 /* 响应式设计 - 平板和桌面端 */
 @media screen and (min-width: 768px) {
+    body {
+        font-size: 16px;
+    }
+    
     .container {
-        padding: 20px;
+        padding: 25px;
     }
     
     .title {
@@ -162,42 +186,54 @@ body {
         margin-bottom: 25px;
     }
     
+    .question-block {
+        margin-bottom: 40px;
+    }
+    
     .question-block h2 {
-        font-size: 20px;
+        font-size: 22px;
     }
     
     .option-btn {
+        width: 80%;
+        min-height: 48px;
+        padding: 12px 15px;
+        font-size: 16px;
+    }
+    
+    .calculate-btn {
+        width: 60%;
+        min-height: 54px;
+        font-size: 18px;
+    }
+    
+    .result-container {
+        width: 90%;
+        padding: 30px;
+        font-size: 16px;
+    }
+    
+    .title-image {
+        max-width: 70%; /* 在大屏幕上限制宽度 */
+        width: auto;
+        border-radius: 8px; /* 恢复圆角 */
+        box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+    }
+}
+
+/* 适配大屏幕电脑 */
+@media screen and (min-width: 1024px) {
+    .option-btn {
         width: 75%;
-        padding: 15px;
-        font-size: 17px;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+    
+    .option-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     }
     
     .calculate-btn {
         width: 50%;
-    }
-    
-    .result-container {
-        padding: 25px;
-        font-size: 17px;
-    }
-}
-
-/* 额外针对小屏幕手机的优化 */
-@media screen and (max-width: 380px) {
-    .container {
-        padding: 10px;
-    }
-    
-    .title {
-        font-size: 20px;
-    }
-    
-    .question-block h2 {
-        font-size: 17px;
-    }
-    
-    .option-btn {
-        width: 95%;
-        padding: 12px;
     }
 } 
