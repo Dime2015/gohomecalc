@@ -10,20 +10,21 @@ body {
     background-color: #f8f8f8;
     color: #333;
     line-height: 1.6;
+    font-size: 16px; /* 确保基础字体大小至少16px */
 }
 
 .container {
     width: 100%;
     max-width: 800px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 15px;
 }
 
 /* 标题样式 */
 .title {
     text-align: center;
     margin-bottom: 20px;
-    font-size: 24px;
+    font-size: 22px;
     font-weight: bold;
     color: #333;
 }
@@ -44,7 +45,7 @@ body {
 
 /* 问题区域 */
 .question-block {
-    margin-bottom: 40px;
+    margin-bottom: 35px;
     padding-bottom: 20px;
     border-bottom: 1px solid #ddd;
 }
@@ -59,19 +60,22 @@ body {
 .options {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
+    align-items: center; /* 居中显示按钮 */
 }
 
 .option-btn {
-    width: 100%;
-    padding: 12px 15px;
-    font-size: 16px;
+    width: 80%; /* 按钮宽度占屏幕80% */
+    padding: 14px 15px;
+    min-height: 44px; /* 确保按钮高度足够 */
+    font-size: 16px; /* 确保字体大小至少16px */
     border: 1px solid #ddd;
     background-color: #f5f5f5;
     border-radius: 4px;
     cursor: pointer;
     text-align: left;
     transition: all 0.2s ease;
+    line-height: 1.4;
 }
 
 .option-btn:hover {
@@ -95,6 +99,8 @@ body {
     background-color: #333;
     color: white;
     padding: 15px 30px;
+    min-height: 50px;
+    width: 80%; /* 与选项按钮保持一致宽度 */
     border: none;
     border-radius: 4px;
     font-size: 18px;
@@ -114,6 +120,9 @@ body {
     border-radius: 4px;
     background-color: white;
     display: none;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: left;
 }
 
 .result-container.show {
@@ -139,12 +148,18 @@ body {
     color: #cc0000;
     margin-top: 10px;
     font-weight: bold;
+    font-size: 16px;
 }
 
-/* 响应式设计 */
+/* 响应式设计 - 平板和桌面端 */
 @media screen and (min-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+    
     .title {
         font-size: 28px;
+        margin-bottom: 25px;
     }
     
     .question-block h2 {
@@ -152,7 +167,37 @@ body {
     }
     
     .option-btn {
-        width: 80%;
-        margin: 0 auto;
+        width: 75%;
+        padding: 15px;
+        font-size: 17px;
+    }
+    
+    .calculate-btn {
+        width: 50%;
+    }
+    
+    .result-container {
+        padding: 25px;
+        font-size: 17px;
+    }
+}
+
+/* 额外针对小屏幕手机的优化 */
+@media screen and (max-width: 380px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .title {
+        font-size: 20px;
+    }
+    
+    .question-block h2 {
+        font-size: 17px;
+    }
+    
+    .option-btn {
+        width: 95%;
+        padding: 12px;
     }
 } 
