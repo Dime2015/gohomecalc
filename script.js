@@ -107,6 +107,12 @@ document.addEventListener('DOMContentLoaded', function() {
         resultContainer.innerHTML = resultText;
         resultContainer.classList.add('show');
         
+        // 显示联系方式区域
+        const contactContainer = document.getElementById('contact-info');
+        if (contactContainer) {
+            contactContainer.style.display = 'block';
+        }
+        
         // 滚动到结果区域
         resultContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     });
